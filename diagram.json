@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "author": "",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 39, "left": -0.6, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 25.2, "left": -73, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 169.2,
+      "left": -73,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 92.4,
+      "left": -73,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -94.5,
+      "left": 5.5,
+      "attrs": { "distance": "2" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 60,
+      "left": 299.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -92.86,
+      "left": 278.63,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "uno:5V", "ultrasonic1:VCC", "blue", [ "h-5.8", "v38.3", "h-163.2", "v-268.8" ] ],
+    [ "ultrasonic1:TRIG", "uno:6", "blue", [ "v9.6", "h114.8" ] ],
+    [ "ultrasonic1:ECHO", "uno:7", "blue", [ "v28.8", "h91.6" ] ],
+    [ "oled1:SDA", "uno:A4", "white", [ "v-9.6", "h48.07", "v393.6", "h-148.2" ] ],
+    [ "oled1:SCL", "uno:A5", "white", [ "v-19.2", "h77.1", "v384", "h-157.9" ] ],
+    [ "led2:A", "uno:2", "green", [ "h9.6", "v-336", "h274.3" ] ],
+    [ "led3:A", "uno:3", "yellow", [ "h19.2", "v-249.6", "h255.2" ] ],
+    [ "led1:A", "uno:4", "red", [ "h28.8", "v-172.8", "h236.1" ] ],
+    [ "led2:C", "uno:GND.2", "green", [ "h0.4", "v67.2", "h226.5" ] ],
+    [ "led3:C", "uno:GND.2", "yellow", [ "h-9.2", "v163.2", "h236.1" ] ],
+    [ "bz1:1", "uno:8", "black", [ "h-38.4", "v-124.8", "h-115.2", "v28.8" ] ],
+    [ "bz1:2", "uno:GND.3", "black", [ "v115.2", "h-158" ] ],
+    [ "oled1:GND", "uno:9", "white", [ "v-19.2", "h-48", "v105.6", "h-105.6", "v48" ] ],
+    [ "ultrasonic1:GND", "uno:GND.1", "blue", [ "v0", "h8.4" ] ],
+    [ "oled1:VCC", "uno:5V", "white", [ "v-28.8", "h105.75", "v422.4", "h-272.6" ] ],
+    [ "led1:C", "uno:GND.2", "red", [ "h-18.8", "v249.6", "h245.7" ] ]
+  ],
+  "dependencies": {}
+}
